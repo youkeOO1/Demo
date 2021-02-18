@@ -1,3 +1,4 @@
+// 默认请求baseURL
 axios.defaults.baseURL = 'https://developer.duyiedu.com/vue/bz';
 axios.interceptors.response.use(response => {
     // 对响应数据做点什么
