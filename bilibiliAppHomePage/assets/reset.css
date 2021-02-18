@@ -1,0 +1,82 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*
+我得样式
+*/
+html{
+	background: none;
+}
+
+/*清除浮动*/
+.clearfix::after {
+    content: "";
+    display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+a{
+	color: inherit;
+	text-decoration: none;
+}
+
+/* logo图下得文字隐藏 */
+.f0{display: block; width: 100%; height: 100%; text-indent:-3000px; overflow:hidden;}
+/* 单行溢出打点 */
+.ellipsis{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+/* 更改鼠标样式 */
+.cursor_click{cursor:pointer;}
+/* 多行溢出打点 */
+.moreEllipsis {
+	/* width: 100px;  */
+	display: -webkit-box; /* 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示  */
+	-webkit-line-clamp: 2;  /* 用来限制在一个块元素显示的文本的行数 */
+	-webkit-box-orient: vertical;  /* 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式  */
+	overflow: hidden;
+  }
