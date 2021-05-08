@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script crossorigin="anonymous"
+    integrity="sha512-YXLGLsQBiwHPHLCAA9npZWhADUsHECjkZ71D1uzT2Hpop82/eLnmFb6b0jo8pK4T0Au0g2FETrRJNblF/46ZzQ=="
+    src="https://lib.baomitu.com/vue/2.6.12/vue.js"></script>
+  <style>
+    .toast-wrapper {
+      width: 380px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      box-sizing: border-box;
+      padding: 0 20px;
+      border-radius: 10px;
+      position: fixed;
+      left: calc(50% - 130px);
+      top: 0;
+      margin-top: 30px;
+    }
+
+    .success {
+        background-color: #F0F9EB;
+        color: #67C23A;
+    }
+
+    .fail {
+        background-color: #FEF0F0;
+        color: #F56C6C;
+    }
+
+    .toast-content {
+      /* color: #fff; */
+      font-weight: 600;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        top: -100px;
+        opacity: 0;
+      }
+
+      100% {
+        top: 0;
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      100% {
+        top: -100px;
+        opacity: 0;
+      }
+
+      0% {
+        top: 0px;
+        opacity: 1;
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn .5s forwards;
+    }
+
+    .fade-out {
+      animation: fadeOut .5s forwards;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="toast-wrapper animate fail">
+    <div class="toast-content">正确</div>
+  </div>
+  <script>
+    function Toast(msg, type) {
+      const vm = new Vue({
+        el: document.createElement('div'),
+        template: `<div
+        class="toast-wrapper"
+        :class="[animate,type]"
+        v-if=exist
+        >
+        <div
+        class="toast-content"
+        >{{ msg }}</div>
+        </div>`,
+        data() {
+          return {
+            type,
+            msg,
+            exist: true,
+            show: true,
+          }
+        },
+        computed: {
+          animate() {
+            return this.show ? 'fade-in' : 'fade-out';
+          }
+        },
+      });
+      document.body.appendChild(vm.$el)
+      setTimeout(() => {
+        vm.show = false;
+      }, 1500);
+      setTimeout(() => {
+        vm.exist = false;
+      }, 2000);
+    }
+
+  </script>
+</body>
+
+</html>
