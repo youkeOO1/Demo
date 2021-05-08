@@ -3,9 +3,16 @@
     <template v-if="isTeacher">
       <div class="teacher-show">
         <div class="top">
-          <button @click="showTask">测试任务</button>
+          <button @click="showTaskEasy">基础任务</button>
+          <button @click="showTask">进阶任务</button>
           <button @click="showGrade">小组成绩</button>
-          <h2 :class="{ showTitle: isTask }">任务：分析近三年县产量最高的农作物</h2>
+          <div class="task-warp">
+            <h2 class="taskEasy" :class="{ showTitle: isTaskEasy }">任务：筛选出小麦的种植面积大于3000亩地区的信息。</h2>
+            <div class="fTaskEasy" :class="{ showTitle: isTask }">
+              <h2 :class="{ showTitle: isTask }">任务一：筛选出种植面积大于3000亩和产量大于1000吨的农作物信息。</h2>
+              <h2 :class="{ showTitle: isTask }">任务二：筛选出种植面积大于3000亩或产量大于1000吨的农作物信息。</h2>
+            </div>
+          </div>
         </div>
         <div class="bottom">
           <group-results v-if="isTesting"></group-results>
@@ -14,10 +21,9 @@
     </template>
     <template v-else>
       <div class="btn-warp">
-        <button @click="download">下载任务</button>
+        <button @click="downloadEasy">基础任务</button>
+        <button @click="download">进阶任务</button>
         <button @click="submit">提交作业</button>
-        <button>成绩</button>
-        <!-- <a href="https://www.tool77.com/wenku/download/d5f3dc5a784d49189d798396929e987b">132456</a> -->
       </div>
       <template v-if="isSubmit">
         <submit></submit>
@@ -35,6 +41,7 @@ import submit from '@/components/submit/submit.vue';
 export default {
   data() {
     return {
+      isTaskEasy: false,
       isTesting: false,
       isTask: false,
       isSubmit: false,
@@ -48,22 +55,43 @@ export default {
     submit,
   },
   methods: {
+    showTaskEasy() {
+      this.isTaskEasy = !this.isTaskEasy;
+      this.isTesting = false;
+      this.isTask = false;
+    },
     showTask() {
       this.isTesting = false;
       this.isTask = !this.isTask;
+      this.isTaskEasy = false;
     },
     showGrade() {
       this.isTesting = !this.isTesting;
       this.isTask = false;
+      this.isTaskEasy = false;
+    },
+    downloadEasy() {
+      // eslint-disable-next-line no-restricted-globals
+      this.$FileSaver.saveAs(`http://localhost:${location.port || this.$port}/基础案例.xlsx`, '基础案例.xlsx');
+      this.$Message({
+        message: '下载成功',
+        type: 'success',
+      });
     },
     download() {
-      // const blob = new Blob(['Hello, world!'], { type: 'text/plain;charset=utf-8' });
-      // this.$FileSaver.saveAs(blob, 'hello world.txt');
-      this.$FileSaver.saveAs('https://www.tool77.com/wenku/download/93fb9e11109148538a795ee1836bbea5', '1.docx');
+      // eslint-disable-next-line no-restricted-globals
+      this.$FileSaver.saveAs(`http://localhost:${location.port || this.$port}/进阶案例.xlsx`, '进阶案例.xlsx');
+      this.$Message({
+        message: '下载成功',
+        type: 'success',
+      });
     },
     submit() {
       this.isSubmit = !this.isSubmit;
     },
+  },
+  created() {
+    console.log(this);
   },
 };
 </script>
@@ -72,18 +100,36 @@ export default {
 .warp {
   height: 100%;
 }
+.task-warp {
+  position: relative;
+  text-align: center;
+}
+.taskEasy,.fTaskEasy {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%);
+}
+.fTaskEasy{
+  opacity: 0;
+  background: #fff;
+}
 h2 {
+  display: block;
   font-size: 25px;
   font-weight: bold;
   text-align: center;
   opacity: 0;
-  transition: all 1s;
+  transition: all .3s;
+  margin: 10px 0;
 }
-h2.showTitle {
+.showTitle {
   opacity: 1;
 }
 .top {
-  margin: 10px auto;
+  /* border: 1px solid transparent; */
+  padding: 10px 0;
+  margin: 0 auto;
   height: 100px;
   width: 100%;
   /* border: 1px solid #000; */

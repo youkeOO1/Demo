@@ -2,7 +2,10 @@
   <div class="warp">
     <div class="teacher-show" v-show="isTeacher">
       <div class="top">
-        <h2>任务: 分析近三年县产量最高的农品</h2>
+        <div class="task-warp">
+          <h2>任务一: 分析出近三年种植面积最高的农作物信息品</h2>
+          <h2>任务二: 分析出各地区产量最高的农作物信息</h2>
+        </div>
         <button @click=" isTesting = false">测试任务</button>
         <button @click="isTesting = !isTesting">测试成绩</button>
       </div>
@@ -40,13 +43,19 @@ export default {
 h2{
   font-size: 25px;
   font-weight: bold;
-  text-align: center;
+  margin: 20px auto;
 }
 .top{
-  margin: 10px auto;
+  padding: 10px 0;
+  margin: 0 auto;
   height: 100px;
   width: 100%;
   /* border: 1px solid #000; */
+}
+.task-warp{
+  width: 570px;
+  margin: 0 auto;
+  text-align: left;
 }
 button{
   border: 0;

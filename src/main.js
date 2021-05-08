@@ -12,6 +12,7 @@ Vue.prototype.$FileSaver = FileSaver;
 Vue.prototype.$echarts = echarts;
 Vue.prototype.$cookie = cookie;
 Vue.prototype.$Message = Message;
+Vue.prototype.$port = '80';
 Vue.config.productionTip = false;
 
 new Vue({

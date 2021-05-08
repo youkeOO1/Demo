@@ -14,11 +14,13 @@ const routes = [
     redirect: '/main/collect',
     children: [
       {
+        // 数据收集
         path: 'collect',
         name: 'collect',
         component: collect,
       },
       {
+        // 数据分析
         path: 'analyse',
         name: 'analyse',
         component: () => import('@/views/data-analyse/analyse.vue'),
@@ -83,16 +85,25 @@ const routes = [
         ],
       },
       {
+        // 数据处理
         path: 'dispose',
         name: 'dispose',
         component: () => import('@/views/data-dispose/dispose.vue'),
       },
       {
+        // 数据高级处理
         path: 'select',
         name: 'select',
         component: () => import('@/views/data-select/select.vue'),
       },
       {
+        // 数据统计
+        path: 'statistics',
+        name: 'statistics',
+        component: () => import('@/views/data-statistics/statistics.vue'),
+      },
+      {
+        // 数据呈现
         path: 'visualization',
         name: 'visualization',
         component: () => import('@/views/data-visualization/visualization.vue'),

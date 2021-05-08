@@ -108,10 +108,10 @@ export default {
 }
 .data-option dd{
   width: 100%;
-  height: 40px;
-  line-height: 40px;
+  height: 50px;
+  line-height: 50px;
   background: #7d7d7d;
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
 }
 .data-option dd.active{
@@ -119,7 +119,7 @@ export default {
   color: #000;
 }
 dl.active {
-  height: 240px;
+  height: 280px;
 }
 dl.active dt{
     background: #fd5c63;

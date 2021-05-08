@@ -12,14 +12,23 @@ export default {
         trigger: 'item',
       },
       legend: {
-        orient: 'vertical',
-        left: 'left',
+        // orient: 'vertical',
+        type: 'scroll',
+        left: 'center',
+        bottom: '90px',
+        // top: '30px',
+        textStyle: {
+          color: '#fff',
+        },
       },
       series: [
         {
           name: '成绩',
           type: 'pie',
           radius: '50%',
+          textStyle: {
+            color: '#fff',
+          },
           data: [
             {
               value: 70,
@@ -38,7 +47,17 @@ export default {
             itemStyle: {
               shadowBlur: 10,
               shadowOffsetX: 0,
-              shadowColor: 'rgba(0, 0, 0, 0.5)',
+              shadowColor: 'rgba(255, 0, 0, 0.5)',
+            },
+          },
+          labelLine: {
+            lineStyle: {
+              color: 'rgba(0, 0, 0, 1)',
+            },
+          },
+          label: {
+            textStyle: {
+              color: 'rgba(255, 0, 0, 1)',
             },
           },
         },

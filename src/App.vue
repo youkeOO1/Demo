@@ -20,6 +20,13 @@ export default {
     } else if (user === 'teacher') {
       this.setIsTeacher(true);
     }
+    // eslint-disable-next-line no-restricted-globals
+    this.$port = location.port;
+    console.log(this.$port);
+  },
+  beforeCreate() {
+    // eslint-disable-next-line no-restricted-globals
+    this.$port = location.port;
   },
 };
 </script>
@@ -31,6 +38,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   height: 100%;
+  background: #eee;
 }
 :root,body{
   height: 100%;

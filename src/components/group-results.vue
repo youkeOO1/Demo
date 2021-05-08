@@ -67,6 +67,14 @@ export default {
         },
       ],
     });
+    myChart.on('click', (e) => {
+      console.log(e.name, '123');
+      if (e.name === '第二组') {
+        // this.$FileSaver.saveAs('http://localhost:8080/第二组作业.xlsx', '第二组作业.xlsx');
+        // eslint-disable-next-line no-restricted-globals
+        window.open(`http://localhost:${location.port || this.$prot}/%E7%AC%AC%E4%BA%8C%E7%BB%84%E4%BD%9C%E4%B8%9A.html`, '_blank');
+      }
+    });
   },
 };
 </script>
@@ -80,7 +88,8 @@ export default {
 .legend{
   width: 500px;
   height: 15px;
-  margin: 50px auto 0;
+  padding-top: 50px;
+  margin: 0 auto 0;
   display: flex;
   justify-content: space-around;
   padding: 0 20px;
@@ -93,6 +102,10 @@ export default {
   vertical-align: middle;
   border-radius: 5px;
   margin: 0 3px;
+}
+.legend  p {
+  cursor: pointer;
+  z-index: 999;
 }
 .legend .bar-blue{
   background: #748EDE;

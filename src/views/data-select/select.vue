@@ -1,5 +1,5 @@
 <template>
-  <div class="data-show">数据查找展示区</div>
+  <div class="data-show">数据高级处理</div>
 </template>
 
 <script>

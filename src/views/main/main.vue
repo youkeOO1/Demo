@@ -6,14 +6,12 @@
         <router-link tag="li" :to="{ name: 'collect' }">数据收集</router-link>
         <router-link tag="li" :to="{ name: 'analyse' }">数据分析</router-link>
         <router-link tag="li" :to="{ name: 'dispose' }">数据处理</router-link>
-        <router-link tag="li" :to="{ name: 'select' }">数据查找</router-link>
-        <router-link tag="li" :to="{ name: 'collect' }">数据收集</router-link>
-        <router-link tag="li" :to="{ name: 'visualization' }">数据可视化</router-link>
+        <router-link tag="li" :to="{ name: 'select' }">数据高级处理</router-link>
+        <router-link tag="li" :to="{ name: 'statistics' }">数据统计</router-link>
+        <router-link tag="li" :to="{ name: 'visualization' }">数据呈现</router-link>
       </ul>
       <section class="content-warp">
         <router-view></router-view>
-        <!-- <div class="data-option">侧边栏</div>
-        <div class="data-show">展示区</div> -->
       </section>
     </main>
   </section>
