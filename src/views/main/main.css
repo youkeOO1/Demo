@@ -1,0 +1,93 @@
+#student-manage-warp{
+  width: 100%;
+  height: 100%;
+  background-color: #e3e8ee;
+  position: relative;
+}
+/**nav */
+nav{
+  height: 70px;
+  padding: 0 25px;
+  background: linear-gradient(90deg, #333, #111, #aaa);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+.logo img{
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin: 0 5px;
+}
+.logo span{
+  vertical-align: middle;
+}
+.user{
+  cursor: pointer;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 70px;
+  line-height: 70px;
+  z-index: 2;
+}
+.user li {
+  padding: 0 40px;
+  list-style: none;
+}
+.user .quest {
+  display: none;
+}
+.user:hover{
+  background: #000;
+  color: #fff;
+}
+.user:hover .quest{
+  display: block;
+  background: #000;
+}
+
+/**main */
+main{
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 70px);
+  display: flex;
+}
+dl,dt,dd{
+  margin: 0;
+  padding: 0;
+}
+.student-manage-options{
+  width: 200px;
+  height: 100%;
+  background: linear-gradient(#333, #222, #111);
+  color: hsl(210, 13%, 74%);
+}
+.student-manage-options dl{
+  line-height: 40px;
+  text-align: left;
+}
+.student-manage-options dt{
+  padding-left: 10px;
+}
+.student-manage-options dd{
+  padding-left: 45px;
+}
+.student-manage-options dd:hover{
+  background: rgba(255,255,255, 0.5);
+  color: #354457;
+}
+.student-manage-options dd.active{
+  background: #ddd;
+  color: #354457;
+}
+.student-info-show{
+  width: calc(100% - 30px);
+}
+/*  */
