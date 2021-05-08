@@ -22,7 +22,6 @@ export default {
     }
     // eslint-disable-next-line no-restricted-globals
     this.$port = location.port;
-    console.log(this.$port);
   },
   beforeCreate() {
     // eslint-disable-next-line no-restricted-globals
@@ -42,6 +41,9 @@ export default {
 }
 :root,body{
   height: 100%;
+}
+button{
+  cursor: pointer;
 }
 @import url('./reset.css');
 </style>

@@ -18,7 +18,7 @@ export default {
         bottom: '90px',
         // top: '30px',
         textStyle: {
-          color: '#fff',
+          color: '#000',
         },
       },
       series: [
