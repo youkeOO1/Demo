@@ -1,13 +1,28 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+<script>
+import { mapState, mapMutations } from 'vuex';
 
+export default {
+  computed: {
+    ...mapState(['isTeacher']),
+  },
+  methods: {
+    ...mapMutations(['setIsTeacher']),
+  },
+  created() {
+    const user = this.$cookie.getCookie('user');
+    if (user === 'studnet') {
+      this.setIsTeacher(false);
+    } else if (user === 'teacher') {
+      this.setIsTeacher(true);
+    }
+  },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -15,18 +30,10 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100%;
 }
-
-#nav {
-  padding: 30px;
+:root,body{
+  height: 100%;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+@import url('./reset.css');
 </style>
