@@ -90,7 +90,8 @@ export default {
     myChart.on('click', (e) => {
       console.log(e.name, '123');
       if (e.name === '第二组') {
-        this.$FileSaver.saveAs('http://localhost:8080/第二组作业.xlsx', '第二组作业.xlsx');
+        // eslint-disable-next-line no-restricted-globals
+        this.$FileSaver.saveAs(`http://${location.hostname}:${location.port || this.$port}/第二组作业.xlsx`, '第二组作业.xlsx');
         this.$Message({
           showClose: true,
           message: '已开始下载，请稍等',
