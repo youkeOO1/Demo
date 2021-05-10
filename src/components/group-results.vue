@@ -29,8 +29,8 @@ export default {
     myChart.setOption({
       tooltip: {
         trigger: 'item',
+        // eslint-disable-next-line arrow-body-style
         formatter: (e) => {
-          console.log(e);
           return `
           <div style="display:flex;">
             <div style="displaty:inline-block;">
@@ -88,7 +88,6 @@ export default {
       ],
     });
     myChart.on('click', (e) => {
-      console.log(e.name, '123');
       if (e.name === '第二组') {
         // eslint-disable-next-line no-restricted-globals
         this.$FileSaver.saveAs(`http://${location.hostname}:${location.port || this.$port}/第二组作业.xlsx`, '第二组作业.xlsx');

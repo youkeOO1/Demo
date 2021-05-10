@@ -94,9 +94,6 @@ export default {
       this.isSubmit = !this.isSubmit;
     },
   },
-  created() {
-    console.log(this);
-  },
 };
 </script>
 

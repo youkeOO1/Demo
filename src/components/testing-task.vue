@@ -10,8 +10,8 @@ export default {
     myChart.setOption({
       tooltip: {
         trigger: 'item',
+        // eslint-disable-next-line arrow-body-style
         formatter: (e) => {
-          console.log(e);
           return `
           <div style="margin-bottom: 10px">${e.seriesName}</div>
           <div style="display:flex;">
