@@ -2,9 +2,10 @@
   <section id="login-warp">
     <div>
       <h1>welcome</h1>
+        <input type="text" class="login-account" placeholder="account" v-model="account"  />
+        <input type="password" class="login-passwrord" placeholder="Password" v-model="password" />
         <div class="btn-warp">
-          <input type="button" class="login_btn btn" value="学生登录" @click="student" />
-          <input type="button" class="login-signup_btn btn" value="教师登录" @click="teacher" />
+          <input type="button" class=" btn " value="login" @click="login" />
         </div>
     </div>
   </section>
@@ -14,17 +15,25 @@
 import { mapMutations } from 'vuex';
 
 export default {
+  data() {
+    return {
+      account: '',
+      password: '',
+    };
+  },
   methods: {
     ...mapMutations(['setIsTeacher']),
-    student() {
-      this.$cookie.setCookie('user', 'studnet');
-      this.setIsTeacher(false);
-      this.$router.push('/main');
-    },
-    teacher() {
-      this.$cookie.setCookie('user', 'teacher');
-      this.setIsTeacher(true);
-      this.$router.push('/main');
+    login() {
+      // eslint-disable-next-line eqeqeq
+      if (this.account === 'teacher' && this.password === '123456') {
+        this.$cookie.setCookie('user', 'teacher');
+        this.setIsTeacher(true);
+        this.$router.push('/main');
+      } else {
+        this.$cookie.setCookie('user', 'studnet');
+        this.setIsTeacher(false);
+        this.$router.push('/main');
+      }
     },
   },
   created() {
@@ -118,10 +127,10 @@ input:hover {
   margin-top: 20px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 .btn-warp .btn {
-  width: 49%;
+  width: 100%;
 }
 .btn {
   font-size: 18px;

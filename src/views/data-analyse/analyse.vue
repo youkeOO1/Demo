@@ -103,14 +103,15 @@ export default {
   height: 80px;
   line-height: 80px;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 25px;
   cursor: pointer;
 }
 .data-option dd{
   width: 100%;
-  height: 50px;
-  line-height: 50px;
+  height: 70px;
+  line-height: 70px;
   background: #7d7d7d;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -119,7 +120,7 @@ export default {
   color: #000;
 }
 dl.active {
-  height: 280px;
+  height: 360px;
 }
 dl.active dt{
     background: #fd5c63;

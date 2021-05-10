@@ -48,7 +48,7 @@ h2{
 .top{
   padding: 10px 0;
   margin: 0 auto;
-  height: 100px;
+  height: 200px;
   width: 100%;
   /* border: 1px solid #000; */
 }
@@ -68,12 +68,14 @@ button{
   color: white;
   outline: none;
   background: #6c757d;
+  z-index: 9999999;
 }
 button:hover{
     color: #fff;
     background-color: #5a6268;
 }
 .bottom{
-  height: calc(100% - 100px);
+  height: 500px;
+  overflow: hidden;
 }
 </style>

@@ -6,7 +6,7 @@
     </div>
     <div class="submit-item">
       <div class="submit-imgs">
-        <div class="item-right">提交做作业截图</div>
+        <div class="item-right">提交做作业截图:</div>
         <div class="item-left">
           <label for="imgs">点击提价作业截图</label>
           <input
@@ -30,15 +30,16 @@
               <div class="show-line img-show-line"></div>
             </div>
             <div class="close" @click="close('image', index)"></div>
+            <div class="file-name ellipsis">{{ images.name }}</div>
           </div>
         </li>
       </ul>
     </div>
     <div class="submit-item">
       <div class="submit-blogs">
-        <div class="item-right">提交做作业包</div>
+        <div class="item-right">提交做作业包:</div>
         <div class="item-left">
-          <label for="blogs"> 点击提价作业包</label>
+          <label for="blogs" class="blogs-label"> 点击提价作业包</label>
           <input type="file" name="" id="blogs" capture="camera" @change="select($event)" />
         </div>
       </div>
@@ -52,13 +53,14 @@
               <div class="show-line zip-show-line"></div>
             </div>
             <div class="close " @click="close('zip', index)"></div>
+            <div class="file-name ellipsis">{{ zips.name }}</div>
           </div>
         </li>
       </ul>
     </div>
     <div class="submit-item">
       <div class="submit-video">
-        <div class="item-right">提交提交短视频</div>
+        <div class="item-right">提交提交短视频:</div>
         <div class="item-left">
           <label for="videos">点击提交短视频</label>
           <input
@@ -81,6 +83,7 @@
                 <div class="show-line video-show-line"></div>
               </div>
               <div class="close " @click="close('video', index )"></div>
+              <div class="file-name ellipsis">{{ videos.name }}</div>
             </div>
           </li>
       </ul>
@@ -109,6 +112,7 @@ export default {
       }
     },
     renderDom(type, file) {
+      // console.log(file);
       if (!file) return;
       const render = new FileReader();
       if (type === 'image' || type === 'video') {
@@ -124,16 +128,20 @@ export default {
           self.showImgArr.push({
             id: new Date().getTime(),
             result: e.target.result,
+            name: file.name,
           });
         } else if (type === 'video') {
           self.showVideoArr.push({
             id: new Date().getTime(),
             result: e.target.result,
+            name: file.name,
           });
         } else {
+          console.log(e);
           self.showZipArr.push({
             id: new Date().getTime(),
             result: e.target.result,
+            name: file.name,
           });
         }
       };

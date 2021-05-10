@@ -12,7 +12,7 @@ export default {
   computed: {
     src() {
       // eslint-disable-next-line no-restricted-globals
-      return `http://localhost:${location.port || this.$port}/筛选步骤.mp4`;
+      return `http://${location.hostname}:${location.port || this.$port}/筛选步骤.mp4`;
     },
   },
 };
@@ -22,7 +22,8 @@ export default {
 h2{
   font-size: 25px;
   font-weight: bold;
-  margin: 50px auto 50px;
+  padding: 50px 0;
+  margin: 0 auto ;
 }
 video {
   width: 1000px;

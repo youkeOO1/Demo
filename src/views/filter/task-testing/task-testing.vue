@@ -26,7 +26,9 @@
         <button @click="submit">提交作业</button>
       </div>
       <template v-if="isSubmit">
-        <submit></submit>
+        <div class="student-submit">
+          <submit></submit>
+        </div>
       </template>
     </template>
   </div>
@@ -72,17 +74,19 @@ export default {
     },
     downloadEasy() {
       // eslint-disable-next-line no-restricted-globals
-      this.$FileSaver.saveAs(`http://localhost:${location.port || this.$port}/基础案例.xlsx`, '基础案例.xlsx');
+      this.$FileSaver.saveAs(`http://${location.hostname}:${location.port || this.$port}/基础案例.xlsx`, '基础案例.xlsx');
       this.$Message({
-        message: '下载成功',
+        showClose: true,
+        message: '已开始下载,请稍等',
         type: 'success',
       });
     },
     download() {
       // eslint-disable-next-line no-restricted-globals
-      this.$FileSaver.saveAs(`http://localhost:${location.port || this.$port}/进阶案例.xlsx`, '进阶案例.xlsx');
+      this.$FileSaver.saveAs(`http://${location.hostname}:${location.port || this.$port}/进阶案例.xlsx`, '进阶案例.xlsx');
       this.$Message({
-        message: '下载成功',
+        showClose: true,
+        message: '已开始下载，请稍等',
         type: 'success',
       });
     },
@@ -112,7 +116,7 @@ export default {
 }
 .fTaskEasy{
   opacity: 0;
-  background: #fff;
+  background: #eee;
 }
 h2 {
   display: block;
@@ -152,5 +156,11 @@ button:hover{
 }
 .bottom {
   height: calc(100% - 100px);
+}
+.student-submit{
+  height: calc(100% - 96px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

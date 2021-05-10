@@ -27,10 +27,30 @@ export default {
   mounted() {
     const myChart = this.$echarts.init(document.getElementById('echarts-bar'));
     myChart.setOption({
-      tooltip: {},
+      tooltip: {
+        trigger: 'item',
+        formatter: (e) => {
+          console.log(e);
+          return `
+          <div style="display:flex;">
+            <div style="displaty:inline-block;">
+              <span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:${e.color};"></span>
+              <span style="display:inline-block;">${e.name}</span>
+            </div>
+            <div style="displaty:inline-block; margin-left:10px; font-weight: bold;">${e.data.value}分</div>
+          </div>
+          `;
+        },
+      },
       xAxis: {
         type: 'category',
         data: ['第一组', '第二组', '第三组', '第四组'],
+        axisLabel: {
+          textStyle: {
+            fontSize: '18',
+            fontWeight: 'bold',
+          },
+        },
       },
       yAxis: {
         type: 'value',
@@ -39,25 +59,25 @@ export default {
         {
           data: [
             {
-              value: 20,
+              value: 98,
               itemStyle: {
                 color: '#748EDE',
               },
             },
             {
-              value: 34,
+              value: 100,
               itemStyle: {
                 color: '#9ECF8E',
               },
             },
             {
-              value: 28,
+              value: 95,
               itemStyle: {
                 color: '#F6DC7D',
               },
             },
             {
-              value: 24,
+              value: 93,
               itemStyle: {
                 color: '#F6868A',
               },
@@ -72,7 +92,7 @@ export default {
       if (e.name === '第二组') {
         // this.$FileSaver.saveAs('http://localhost:8080/第二组作业.xlsx', '第二组作业.xlsx');
         // eslint-disable-next-line no-restricted-globals
-        window.open(`http://localhost:${location.port || this.$prot}/%E7%AC%AC%E4%BA%8C%E7%BB%84%E4%BD%9C%E4%B8%9A.html`, '_blank');
+        window.open(`http://${location.hostname}:${location.port || this.$prot}/%E7%AC%AC%E4%BA%8C%E7%BB%84%E4%BD%9C%E4%B8%9A.html`, '_blank');
       }
     });
   },
@@ -83,7 +103,8 @@ export default {
 #echarts-bar{
   width: 500px;
   height: 500px;
-  margin: 3px auto;
+  padding-top: 3px;
+  margin: 0 auto;
 }
 .legend{
   width: 500px;
